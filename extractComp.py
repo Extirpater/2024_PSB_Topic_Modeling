@@ -2,7 +2,7 @@ import os
 import pdfplumber
 
 # Constants
-PDF_FOLDER = '/Users/DevZhang/data-retrieval-project/PSB_Papers/psb2016_pdfs'
+BASE_PDF_FOLDER = '/Users/DevZhang/data-retrieval-project/PSB_Papers'
 OUTPUT_FOLDER = '/Users/DevZhang/data-retrieval-project/PSB_Papers/text_outputs'
 MAIN_BODY_FOLDER = '/Users/DevZhang/data-retrieval-project/PSB_Papers/main_body'
 MIN_ABSTRACT_LENGTH = 100  # Minimum length for abstract text
@@ -113,5 +113,10 @@ def process_all_pdfs_in_folder(folder_path, output_folder, main_body_folder):
             output_path = os.path.join(output_folder, os.path.splitext(filename)[0] + '.txt')
             process_pdf(pdf_path, output_path, main_body_folder)
 
-# Example usage
-process_all_pdfs_in_folder(PDF_FOLDER, OUTPUT_FOLDER, MAIN_BODY_FOLDER)
+# Loop through PDF folders by year
+for year in range(2000, 2025):
+    year_suffix = str(year)[-2:]  # Get last two digits of the year
+    pdf_folder = os.path.join(BASE_PDF_FOLDER, f'psb20{year_suffix}_pdfs')
+
+    # Process PDFs in the current year's folder
+    process_all_pdfs_in_folder(pdf_folder, OUTPUT_FOLDER, MAIN_BODY_FOLDER)
