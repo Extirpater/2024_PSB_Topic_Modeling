@@ -2,49 +2,83 @@ import os
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+import urllib
+from urllib.request import urlretrieve
 
-#asdfasdf
+from time import sleep
+
+# Format changed over the years 
+# 96-99 use p's 
+# 00-01 use li's 
+# 02-now use 
+
 # Base URL
 base_url = "https://psb.stanford.edu/psb-online/proceedings/psb"
 
-# Loop through each year from 1996 to 2024
-for year in range(1996, 2025):
-    # Convert year to the appropriate format
-    year_suffix = str(year)[-2:]
-    url = f"{base_url}{year_suffix}/"
-    print(year_suffix)
-    if year_suffix != '16':
-        continue
-    # Fetch the HTML content from the website
-    response = requests.get(url)
-    if response.status_code != 200:
-        print(f"Failed to retrieve data for year {year}.")
-        continue
-    html_content = response.text
+def stage_one(soup):
+    soup = soup.select_one('b')
+    pdf_links, titles = [], []
+    p = soup.select('p a')
+    print()
 
-    # Parse the HTML content
-    soup = BeautifulSoup(html_content, 'html.parser')
-    # Extract PDF links
-    pdf_links = []
-    titles = []
+    for ps in p:
+        print("Step", ps)
+        input()
+        title = ps.select_one('em')     
+        if ps and title and ps.get('href') and ps['href'].endswith('.pdf'):
+            pdf_links.append(urljoin(url, ps['href']))
+            titles.append(title.text.strip().replace('\n', ' '))
+    return pdf_links
 
+
+def stage_two(soup):
+    pdf_links, titles = [], []
     for dt in soup.find_all('dt'):
         link = dt.find('a')
         if link and link['href'].endswith('.pdf'):
             pdf_links.append(urljoin(url, link['href']))
-            titles.append(link.text.strip())
+            titles.append(link.text.strip().replace('\n', ' '))
+    return pdf_links
 
-    with open('titles.txt', 'w', encoding='utf-8') as f:
-        for title in titles:
-            f.write(title + '\n')
+def stage_three(soup):
+    pdf_links, titles = [], []
+    for dt in soup.find_all('dt'):
+        link = dt.find('a')
+        if link and link['href'].endswith('.pdf'):
+            pdf_links.append(urljoin(url, link['href']))
+            titles.append(link.text.strip().replace('\n', ' '))
+    return pdf_links
+
+# Loop through each year from 1996 to 2024
+for year in range(2021, 2025):
+    year_suffix = str(year)[-2:]
+    url = f"{base_url}{year_suffix}/"
+
+    response = requests.get(url, verify=False)
+    if response.status_code != 200:
+        print(f"Failed to retrieve data for year {year}.")
+        continue    
+    soup = BeautifulSoup(response.content, 'html.parser')
+
+    # Extract PDF links
+    pdf_links = soup.find_all('a', href=True)
+    pdf_links = [urljoin(url, link['href']) for link in pdf_links if link['href'].endswith('.pdf')]
     # Create a folder to save PDFs
     pdf_folder = f'psb{year}_pdfs'
     os.makedirs(pdf_folder, exist_ok=True)
-    print(titles)
     # Download PDFs
-    for pdf_link in pdf_links:
-        response = requests.get(pdf_link)
-        pdf_name = os.path.join(pdf_folder, pdf_link.split('/')[-1])
-       # with open(pdf_name, 'wb') as pdf_file:
-       #    pdf_file.write(response.content)
-        print(f'Downloaded: {pdf_name}')
+    for i in range(len(pdf_links)):
+        # response = requests.get(pdf_link)
+        pdf_link = pdf_links[i]  
+        pdf_link = pdf_link.replace(" ", "%20")
+        print("wassup", pdf_link)
+        pdf_response = requests.get(pdf_link, verify=False)
+        try:
+            urlretrieve(pdf_link)
+        except Exception as err:
+            print(f"Other error occurred: {err}")
+        else:
+            urlretrieve(pdf_link, f"{pdf_folder}/{i}")
+
+        print(f'Downloaded: {i}')
+    sleep(10)
