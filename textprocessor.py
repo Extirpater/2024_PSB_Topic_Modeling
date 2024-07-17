@@ -6,6 +6,7 @@ import re
 import en_core_web_sm
 import nltk
 from nltk.corpus import stopwords
+from ftfy import fix_encoding
 
 class TextProcessor:
     def __init__(self):
@@ -19,7 +20,7 @@ class TextProcessor:
             "theoretical", "practical", "implications", "model", "framework",
             "approach", "evidence", "hypothesis", "validation", "variables",
             "participants", "outcomes", "significant", "contribution", "limitations",
-            "future", "work", "review", "experiment", "experimental", "design"
+            "future", "work", "review", "experiment", "experimental", "design","pacific", "symposium", "biocomputing"
         }
 
         self.stopwords = set(stopwords.words('english')).union(additional_stop_words)
@@ -80,8 +81,7 @@ class TextProcessor:
             text = self.lemmatiz(text)
         if sc: 
             text = self.spell_correct(text)
-        
-        
+        text = fix_encoding(text)
         return text
 
     def clean_text(self, text):
