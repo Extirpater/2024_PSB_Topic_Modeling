@@ -7,6 +7,7 @@ import en_core_web_sm
 import nltk
 from nltk.corpus import stopwords
 from ftfy import fix_encoding
+import wordninja
 
 class TextProcessor:
     def __init__(self):
@@ -16,11 +17,12 @@ class TextProcessor:
             "conclusion", "method", "methodology",
             "results", "discussion", "figure", "figures", "tables", "appendix",
             "study", "research", "analysis", "paper", "findings", "data", "sample",
-            "survey", "literature", "review", "case", "report", "experiment",
+            "survey", "literature", "review", "case", "report", "experiment",   
             "theoretical", "practical", "implications", "model", "framework",
             "approach", "evidence", "hypothesis", "validation", "variables",
             "participants", "outcomes", "significant", "contribution", "limitations",
-            "future", "work", "review", "experiment", "experimental", "design","pacific", "symposium", "biocomputing"
+            "future", "work", "review", "experiment", "experimental", "design","pacific", "symposium", "biocomputing",
+            "into", "three", "been", "study", "research", "supported", "where", "been", "may", "approach", 
         }
 
         self.stopwords = set(stopwords.words('english')).union(additional_stop_words)
@@ -45,6 +47,18 @@ class TextProcessor:
     def word_length(self, text):
         pattern = re.compile(r'(.)\1+')
         return pattern.sub(r'\1\1', text)
+    
+    def split_concatenated_words(self, text):
+        words = wordninja.split(text)
+        fixed_sentence = ' '.join(words)
+        return fixed_sentence
+
+    
+    def remove_short_words(self, text):
+        pattern = r'\b\w{1,2}\b'
+        cleaned_text = re.sub(pattern, '', text)
+        cleaned_text = re.sub(r'\s+', ' ', cleaned_text).strip()
+        return cleaned_text
 
     def spell_correct(self, text):
         return ' '.join(self.spell.correction(word) for word in text.split() if self.spell.correction(word) is not None)
@@ -59,8 +73,15 @@ class TextProcessor:
     
     def remove_numbers(self, text):
         return re.sub(r'\d+', '', text)
-
-    def process_text(self, text, ra=True, ec=True, low=True, sf=True, rw=True, wl=True, lemma=True, sc=True, sw=True, digits=True):
+    
+    def remove_cid(self, text):
+        pattern = r'cid'
+        cleaned_text = re.sub(pattern, '', text)
+        cleaned_text = re.sub(r'\s+', ' ', cleaned_text).strip()
+        return cleaned_text
+    
+   
+    def process_text(self, text, ra=True, ec=True, low=True, sf=True, rw=True, wl=True, lemma=True, sc=True, sw=True, digits=True, sws=True, cid=True):
         if ra: 
             text = self.remove_accent(text)
         if ec:
@@ -81,7 +102,13 @@ class TextProcessor:
             text = self.lemmatiz(text)
         if sc: 
             text = self.spell_correct(text)
+        if cid:
+            text = self.remove_cid(text)
         text = fix_encoding(text)
+        
+        text = self.split_concatenated_words(text)
+        if sws: 
+            text = self.remove_short_words(text)
         return text
 
     def clean_text(self, text):

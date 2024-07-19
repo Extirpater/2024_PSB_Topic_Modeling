@@ -75,7 +75,6 @@ for year in range(1996, 1999):
             index = txt.find(title)
             authors = txt[:index-2]
             pdf_all.append({'pdf':urljoin(url, link['href']), 'authors': authors, 'titles':title})
-            input()
             
 
     # pdf_links = [urljoin(url, link['href']) for link in pdf_links if link['href'].endswith('.pdf')]
@@ -104,6 +103,6 @@ for year in range(1996, 1999):
             df = pd.concat([df, df2], ignore_index=True)
             urlretrieve(pdf_link, f"{pdf_folder}/{i}")
         df['available'] = df['available'].astype(bool)
-        df.to_csv(f'PSB_Papers/PDFS/csvs/{year}.csv')
+        df.to_csv(f'PSB_Papers/CSVs/{year}.csv')
         print(f'Downloaded: {i}')
     sleep(10)

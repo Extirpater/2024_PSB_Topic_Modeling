@@ -74,12 +74,12 @@ def process_pdf(pdf_path, output_path, main_body_folder):
     
     intro_index = find_section(text, "introduction")
     reference_index = find_section(text, "references")
-
+    title = os.path.splitext(os.path.basename(output_path))[0]
     if intro_index is not None:
         abstract = extract_abstract(text, intro_index)
         main_body = extract_main_body(text, intro_index, reference_index)
         references = extract_references(text, reference_index)
-        title = os.path.splitext(os.path.basename(output_path))[0]
+        
 
         if abstract and main_body and references:
             save_text_to_file(f"Abstract:\n{abstract}\n\nMain Body:\n{main_body}\n\nReferences:\n{references}", output_path)
@@ -91,6 +91,9 @@ def process_pdf(pdf_path, output_path, main_body_folder):
         else:
             print(f"Error extracting sections from {pdf_path}. Sections might be missing or too short.")
     else:
+        # print(f"Saving whole document as body because Introduction was not found in {pdf_path}")
+        # main_body_output_path = os.path.join(main_body_folder, title + '_main_body.txt')
+        # save_main_body_to_file(text, main_body_output_path)
         print(f"Introduction not found in {pdf_path}. Skipping.")
 
 def process_all_pdfs_in_folder(folder_path, output_folder, main_body_folder):
@@ -109,15 +112,9 @@ def process_all_pdfs_in_folder(folder_path, output_folder, main_body_folder):
         # if filename.endswith('.pdf'):
             
 
-# # Loop through PDF folders by year
-# for year in range(2000, 2025):
-#     year_suffix = str(year)[-2:]  # Get last two digits of the year
-#     pdf_folder = os.path.join(BASE_PDF_FOLDER, f'psb20{year_suffix}_pdfs')
+# Loop through PDF folders by year
+for year in range(1996, 2025):
+    pdf_folder = os.path.join("./PSB_Papers/PDFS/", f'psb{year}_pdfs')
 
-#     # Process PDFs in the current year's folder
-#     process_all_pdfs_in_folder(pdf_folder, OUTPUT_FOLDER, MAIN_BODY_FOLDER)
-year = 2016 # Get last two digits of the year
-pdf_folder = os.path.join("./PSB_Papers/", f'psb{year}_pdfs')
-
-# Process PDFs in the current year's folder
-process_all_pdfs_in_folder(pdf_folder, f"./PSB_Papers/text_outputs/{year}", f"./PSB_Papers/main_body/{year}")
+    # Process PDFs in the current year's folder
+    process_all_pdfs_in_folder(pdf_folder, f"./PSB_Papers/text_outputs/{year}", f"./PSB_Papers/main_body/{year}")
