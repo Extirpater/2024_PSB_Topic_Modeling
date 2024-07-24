@@ -1,0 +1,23 @@
+,Topic,Words,Scores
+0,Topic -1,gene genes set using one ,0.01 0.01 0.01 0.01 0.01 
+1,Topic 0,protein proteins structure residues sequence ,0.03 0.02 0.01 0.01 0.01 
+2,Topic 1,snps snp disease genetic plo ,0.02 0.02 0.01 0.01 0.01 
+3,Topic 2,gene genes expression regulatory network ,0.03 0.02 0.02 0.01 0.01 
+4,Topic 3,cancer mutations genes gene tumor ,0.03 0.02 0.02 0.02 0.02 
+5,Topic 4,network networks time state graph ,0.02 0.02 0.01 0.01 0.01 
+6,Topic 5,patients patient health clinical features ,0.02 0.02 0.01 0.01 0.01 
+7,Topic 6,terms text term information names ,0.03 0.02 0.01 0.01 0.01 
+8,Topic 7,tree trees taxa species number ,0.06 0.02 0.02 0.02 0.01 
+9,Topic 8,sequence sequences dna length coding ,0.03 0.01 0.01 0.01 0.01 
+10,Topic 9,imaging brain features age cognitive ,0.03 0.03 0.02 0.01 0.01 
+11,Topic 10,drug drugs target similarity compounds ,0.05 0.03 0.02 0.02 0.01 
+12,Topic 11,object ontology databases database bio ,0.02 0.02 0.02 0.02 0.02 
+13,Topic 12,cell cells spatial expression single ,0.07 0.05 0.02 0.02 0.02 
+14,Topic 13,virus viral cov hiv sequences ,0.04 0.03 0.02 0.02 0.02 
+15,Topic 14,rna mirna rnas sequence structure ,0.07 0.03 0.02 0.02 0.02 
+16,Topic 15,harm drug gene relationships drugs ,0.07 0.07 0.03 0.03 0.02 
+17,Topic 16,rac species rrna biome communities ,0.02 0.02 0.02 0.02 0.02 
+18,Topic 17,cancer features mirna layer training ,0.03 0.03 0.02 0.02 0.02 
+19,Topic 18,mass peptide spectra peak peaks ,0.05 0.05 0.04 0.04 0.04 
+20,Topic 19,alignment alignments sequences score scoring ,0.09 0.06 0.04 0.03 0.03 
+21,Topic 20,work flow module user python ,0.04 0.04 0.02 0.02 0.02 
