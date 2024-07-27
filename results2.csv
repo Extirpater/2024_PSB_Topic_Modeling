@@ -1,0 +1,6 @@
+,Probability Words,Relevance Words,Saliency Words,Probability Scores,Relevance Scores,Saliency Scores
+0,genetic,risk,risk,0.01,0.94,0.28
+1,risk,phenotypes,genetic,0.00,0.94,0.25
+2,association,age,phenotypes,0.00,0.94,0.25
+3,was,prs,phenotype,0.00,0.94,0.24
+4,phenotype,imaging,age,0.00,0.94,0.23

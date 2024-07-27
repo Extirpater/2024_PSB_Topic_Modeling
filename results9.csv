@@ -1,0 +1,6 @@
+,Probability Words,Relevance Words,Saliency Words,Probability Scores,Relevance Scores,Saliency Scores
+0,interactions,interactions,interactions,0.01,0.95,0.40
+1,interaction,interaction,interaction,0.01,0.94,0.29
+2,high,correlation,high,0.00,0.90,0.14
+3,human,high,human,0.00,0.90,0.13
+4,data,group,correlation,0.00,0.90,0.13

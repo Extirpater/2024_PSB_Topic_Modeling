@@ -19,14 +19,18 @@ def normalize_scores(scores):
     normalized_scores = (scores - min_score) / (max_score - min_score)
     return normalized_scores
 
-def calculate_relevance(topic_term_dists, term_freqs, lambda_param=0.6):
+def calculate_relevance(topic_term_dists, term_freqs):
+    lambdas = [0.,0.25, 0.5, 0.75]
+    results = []
     """Calculate relevance for each term in each topic."""
-    topic_term_dists = np.array(topic_term_dists)
-    term_freqs = np.array(term_freqs)
-    term_freqs = term_freqs / term_freqs.sum()  # Normalize term frequencies
-    relevance = lambda_param * np.log(topic_term_dists) + (1 - lambda_param) * np.log(topic_term_dists / term_freqs)
-    normalized_relevance = normalize_scores(relevance)
-    return normalized_relevance
+    for lams in lambdas: 
+        topic_term_dists = np.array(topic_term_dists)
+        term_freqs = np.array(term_freqs)
+        term_freqs = term_freqs / term_freqs.sum()  # Normalize term frequencies
+        relevance = lams * np.log(topic_term_dists) + (1 - lams) * np.log(topic_term_dists / term_freqs)
+        normalized_relevance = normalize_scores(relevance)
+        results.append(normalized_relevance)
+    return results 
 
 def calculate_saliency(topic_term_dists, term_freqs):
     term_freqs = np.array(term_freqs)

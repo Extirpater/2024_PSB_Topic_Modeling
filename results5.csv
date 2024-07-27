@@ -1,0 +1,6 @@
+,Probability Words,Relevance Words,Saliency Words,Probability Scores,Relevance Scores,Saliency Scores
+0,performance,performance,performance,0.01,0.93,0.29
+1,features,features,features,0.01,0.93,0.26
+2,models,training,training,0.01,0.92,0.22
+3,training,learning,learning,0.01,0.92,0.21
+4,learning,feature,models,0.00,0.92,0.21

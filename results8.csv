@@ -1,0 +1,6 @@
+,Probability Words,Relevance Words,Saliency Words,Probability Scores,Relevance Scores,Saliency Scores
+0,proteins,proteins,proteins,0.02,0.96,0.52
+1,score,similarity,similarity,0.01,0.94,0.29
+2,similarity,score,score,0.01,0.93,0.26
+3,function,predicted,function,0.01,0.92,0.19
+4,functional,functional,functional,0.00,0.92,0.18

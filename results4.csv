@@ -1,0 +1,6 @@
+,Probability Words,Relevance Words,Saliency Words,Probability Scores,Relevance Scores,Saliency Scores
+0,cell,cell,cell,0.02,0.96,0.58
+1,cancer,cancer,cancer,0.01,0.96,0.47
+2,samples,pathway,pathway,0.01,0.93,0.26
+3,pathway,tumor,pathways,0.01,0.93,0.23
+4,cells,pathways,cells,0.00,0.93,0.23

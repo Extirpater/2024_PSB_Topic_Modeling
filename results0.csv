@@ -1,0 +1,6 @@
+,Probability Words,Relevance Words,Saliency Words,Probability Scores,Relevance Scores,Saliency Scores
+0,structure,residues,structure,0.01,0.96,0.44
+1,residues,structure,residues,0.01,0.95,0.44
+2,binding,structures,binding,0.01,0.95,0.37
+3,structures,binding,structures,0.01,0.95,0.36
+4,site,energy,energy,0.00,0.95,0.28

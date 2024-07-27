@@ -1,0 +1,14 @@
+,Topic,Words,Scores
+0,Topic -1,gene set using genes used ,0.015 0.014 0.013 0.012 0.011 
+1,Topic 0,protein set gene sequence proteins ,0.020 0.014 0.014 0.014 0.013 
+2,Topic 1,cancer mutations genes gene cell ,0.036 0.022 0.021 0.020 0.020 
+3,Topic 2,snp snps plo type gene ,0.038 0.032 0.029 0.022 0.020 
+4,Topic 3,drug features disease using age ,0.023 0.019 0.017 0.015 0.015 
+5,Topic 4,patient patients clinical medical health ,0.030 0.026 0.020 0.019 0.019 
+6,Topic 5,gene bio clinical disease form ,0.019 0.018 0.017 0.015 0.015 
+7,Topic 6,tree trees taxa phylogenetic sequences ,0.083 0.036 0.034 0.028 0.026 
+8,Topic 7,mri tax exchange reactions csp ,0.026 0.026 0.023 0.022 0.020 
+9,Topic 8,drug drugs similarity disease target ,0.077 0.045 0.031 0.029 0.027 
+10,Topic 9,cell cells expression gene genes ,0.067 0.047 0.029 0.027 0.026 
+11,Topic 10,hiv cov virus lymph tissue ,0.023 0.022 0.020 0.017 0.017 
+12,Topic 11,rac rrna communities coa meta ,0.039 0.034 0.033 0.029 0.026 

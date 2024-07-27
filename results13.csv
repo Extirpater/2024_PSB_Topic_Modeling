@@ -1,0 +1,6 @@
+,Probability Words,Relevance Words,Saliency Words,Probability Scores,Relevance Scores,Saliency Scores
+0,sequences,sequences,sequences,0.03,1.0,1.0
+1,alignment,alignment,alignment,0.02,0.98,0.67
+2,rna,motif,motif,0.01,0.97,0.46
+3,dna,rna,rna,0.01,0.96,0.46
+4,motif,alignments,dna,0.01,0.95,0.39

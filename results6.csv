@@ -1,0 +1,6 @@
+,Probability Words,Relevance Words,Saliency Words,Probability Scores,Relevance Scores,Saliency Scores
+0,drug,drug,drug,0.03,0.99,0.91
+1,disease,disease,disease,0.02,0.96,0.55
+2,patients,clinical,patients,0.01,0.96,0.43
+3,clinical,patients,clinical,0.01,0.96,0.42
+4,patient,drugs,drugs,0.01,0.95,0.35

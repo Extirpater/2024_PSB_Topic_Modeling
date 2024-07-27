@@ -1,0 +1,6 @@
+,Probability Words,Relevance Words,Saliency Words,Probability Scores,Relevance Scores,Saliency Scores
+0,user,user,user,0.00,0.93,0.21
+1,information,tools,tools,0.00,0.91,0.15
+2,database,names,database,0.00,0.90,0.10
+3,tools,users,work,0.00,0.90,0.10
+4,bio,work,bio,0.00,0.89,0.10

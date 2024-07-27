@@ -1,0 +1,6 @@
+,Probability Words,Relevance Words,Saliency Words,Probability Scores,Relevance Scores,Saliency Scores
+0,terms,terms,terms,0.01,0.96,0.47
+1,text,text,text,0.01,0.96,0.37
+2,system,language,term,0.00,0.94,0.23
+3,term,term,language,0.00,0.93,0.20
+4,information,abstracts,system,0.00,0.93,0.19

@@ -1,0 +1,6 @@
+,Probability Words,Relevance Words,Saliency Words,Probability Scores,Relevance Scores,Saliency Scores
+0,tree,tree,tree,0.02,0.97,0.58
+1,graph,graph,graph,0.01,0.96,0.48
+2,networks,nodes,nodes,0.01,0.95,0.38
+3,nodes,networks,networks,0.01,0.95,0.38
+4,algorithm,edges,edges,0.01,0.95,0.30
